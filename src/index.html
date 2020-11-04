@@ -6,25 +6,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
-        <script>
-            $(function(){
-                // Bind a click event to your anchor with id `updateSal`
-                $("#boutonTestJS").click(function(){
-                    // get your employeeID
-                    var empID = "32"; 
-                    // issue an AJAX request with HTTP post to your server side page. 
-                    //Here I used an aspx page in which the update login is written
-                    $.post("apiAccess.php", { EmpID: empID},
-                        function(data){
-                            // callack function gets executed
-                            alert("Return data" + data);
-                    });
-                
-                    // to prevent the default action
-                    return false;
-                });
-            });
-        </script>
+        <script src="core.js"></script>
 
     </head>
     <body>
