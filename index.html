@@ -10,11 +10,11 @@
         <div class="container">
             <section id="navBar" class="row">
                 <section class="col-6">
-                    <H4 style="margin: 0;">Bienvenue sur notre outil de diagnostique</H4>
+                    <H4 style="margin: 0; color:white;">Bienvenue sur notre outil de diagnostique</H4>
                 </section>
                 <section class="col-6">
                     <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Ville recherchée?">
+                        <input type="text" class="searchTerm" placeholder="Code postal">
                         <button type="submit" class="searchButton">
                             <i class="fa fa-search"></i>
                         </button>
@@ -22,14 +22,42 @@
                 </section>
             </section>
             
-            <section id="content" class="row">
-                <section class="col-12">
-                    <H1>L'indice</H1>
+            <section class="row d1" style="margin: 20px 0;">
+                <section class="row" style="width: 100%;">
+                    <section class="col-12">
+                        <i class="fa fa-search" style="float: left; font-size: 50px;"></i>
+                        <H1>Labbel : </H1>
+                    </section>
+                </section>
+                <section class="col-md-4 heightIn">
+                    <section id="r1">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+                <section class="col-md-4 heightIn">
+                    <section id="r2">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+                <section class="col-md-4 heightIn" >
+                    <section id="r3">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+            </section>
+            
+            <section class="row d1" style="margin: 20px 0;">
+                <section class="col-md-6" style="padding: 0">
+                    <i class="fas fa-info" style="float: left; font-size: 25px; margin: 4px 5px 0 0"></i>
+                    <H3>L'indice</H3>
                     <p style="padding-left: 10px;">L’application doit permettre d’introduire l’indice par un texte explicatif et de le terminer sur
                             une phrase de conclusion
                     </p>
-                    
-                    <h1>Précédente rêquete(s) effectuée(s) :</h1>
+                </section>
+                
+                <section class="col-md-6" style="padding: 0">
+                    <i class="fas fa-info" style="float: left; font-size: 25px; margin: 4px 5px 0 0"></i>
+                    <h3>Précédente rêquete(s) effectuée(s) :</h3>
                     <ol>
                         <a><li>La Rochelle (17)</li></a>
                         <a><li>Fontenay Le Comte (85)</li></a>
@@ -39,15 +67,24 @@
                 </section>
             </section>
             
+            
+            
         </div>
     </body>
     <style>
+        p{
+            margin: 0;
+        }
         #navBar{
-            margin-top: 1px;
+            //margin-top: 1px;
             padding: 10px 0;
-            /*background-color: rgba(0, 0, 0, .75);*/
+            background-color: rgba(0, 0, 0, .75);
             border-bottom: solid 2px black;
-            //border-radius: 15px;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .heightIn{
+            height: inherit
         }
 
         #content{
@@ -57,6 +94,28 @@
         .search {
           display: flex;
         }
+        
+        .d1{
+            border:solid .3px black;
+            padding: 1%;
+            border-radius: 10px;
+        }
+        
+        #r1{
+            background-color: #418bca;
+            border-radius: 8px;
+            height: 200px;
+        }
+        #r2{
+            background-color: #5bb85d;
+            border-radius: 8px;
+            height: 200px;
+        }
+        #r3{
+            background-color: #efad4d;
+            border-radius: 8px;
+            height: 200px;
+        }
 
         .searchTerm {
           width: 100%;
@@ -64,8 +123,9 @@
           border-right: none;
           border-radius: 10px 0 0 10px;
           outline: none;
-          color: #385346;
+          color: white;
             padding-left: 10px;
+            background-color: rgba(0, 0, 0, .2);
         }
 
         .searchTerm:focus{
