@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Les galopins énergétiques</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <section id="navBar" class="row">
+                <section class="col-6">
+                    <H4 style="margin: 0;">Bienvenue sur notre outil de diagnostique</H4>
+                </section>
+                <section class="col-6">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="Ville recherchée?">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </section>
+            </section>
+            
+            <section id="content" class="row">
+                <section class="col-12">
+                    <H1>L'indice</H1>
+                    <p style="padding-left: 10px;">L’application doit permettre d’introduire l’indice par un texte explicatif et de le terminer sur
+                            une phrase de conclusion
+                    </p>
+                    
+                    <h1>Précédente rêquete(s) effectuée(s) :</h1>
+                    <ol>
+                        <a><li>La Rochelle (17)</li></a>
+                        <a><li>Fontenay Le Comte (85)</li></a>
+                        <a><li>Niort (79)</li></a>
+                        <a><li>Paris (75)</li></a>
+                    </ol>
+                </section>
+            </section>
+            
+        </div>
+    </body>
+    <style>
+        #navBar{
+            margin-top: 1px;
+            padding: 10px 0;
+            /*background-color: rgba(0, 0, 0, .75);*/
+            border-bottom: solid 2px black;
+            //border-radius: 15px;
+        }
+
+        #content{
+            margin-top: 15px;
+        }
+        
+        .search {
+          display: flex;
+        }
+
+        .searchTerm {
+          width: 100%;
+          border: 3px solid #00B4CC;
+          border-right: none;
+          border-radius: 10px 0 0 10px;
+          outline: none;
+          color: #385346;
+            padding-left: 10px;
+        }
+
+        .searchTerm:focus{
+          color: #00B4CC;
+        }
+
+        .searchButton {
+          width: 40px;
+          height: 36px;
+          border: 1px solid #00B4CC;
+          background: #00B4CC;
+          text-align: center;
+          color: #fff;
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+          font-size: 20px;
+        }
+
+    </style>
+</html>
