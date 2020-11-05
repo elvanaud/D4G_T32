@@ -54,6 +54,50 @@ body{
 			border-right:auto;
 		}
 		
+		#indiceDef{
+			width:100%;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		
+		#indiceDiv{
+			width:95%;
+			margin-left:auto;
+			margin-right:auto;
+			border-top:1px solid #555555;
+			border-top-width:80%;
+		}	
+
+		.indiceDef{
+			height:200px;
+			width:24%;
+			margin-top:20px;
+			border: 2px solid #3191f8;
+			margin-left:auto;
+			margin-right:auto;
+			border-radius:0 20px 0 20px;
+			
+		}
+		
+		.indiceDef h6{
+			margin-top:5px;
+		
+		}
+		.indiceDef div{
+		}
+		
+		.indiceDef ul{
+			padding-left:0;
+			
+		}
+		
+		.indiceDef li{
+			width:100%;
+			font-size:12px;
+		}
+		
+	
+		
         #ElementRegion{
             margin-top: 25px;
         }

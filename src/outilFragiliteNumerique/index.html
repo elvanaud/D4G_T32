@@ -45,6 +45,7 @@
 			   
 			   <div class="w3-top" id="welcomDiv" >
 				   <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+				   
 						<h1 class="titreH1 text-white w3-xlarge welcom"> Outil de visualisation de l'indice de fragilité</h1>
 						<br>
 						<h4 class="titreH4 text-white w3-xlarge welcom"> Bienvenue sur l'outil permettant la visualisation de l'indice de fragilité numérique d'une commune par rapport à son département et sa région.</h4>
@@ -52,13 +53,67 @@
 						<br>
 						<section class="col-8" style="margin-left:auto;margin-right:auto;">
 						   <div class="search" >
-							   <input type="text" class="searchTerm" placeholder="Code postal">
+							   <input type="text" class="searchTerm" placeholder="Entrez le code postal d'une commune ">
 							   <button type="submit" class="searchButton">
 								   <i class="fa fa-search"></i>
 							   </button>
 						   </div>
 					   </section>
 					</header>
+					<div id="indiceDiv">
+						<div style="margin-top:5px;">
+							<h5 class="m-0 text-white">Voici les 4 axes de calcul: </h5>
+						 </div>
+						<div class="row row-cols-4" id="indiceDef">
+							
+							<section class="col-lg-3 mb-4 indiceDef">
+								<h6 class="titreH6 text-white font-weight-bold">Accès à l'information: </h6>
+								<div class="text-white">
+								<ul>
+									<li> Etre isolé</li>
+									<li> Etre éloigné d'un point d'information/médiation numérique</li>
+									<li> Être éloigné d’un point d’information ou aide sociale ou administrative</li>
+									<li> Ne pas être locuteur du français</li>
+								</ul>
+								</div>
+							</section>
+							
+							<section class="col-lg-3 mb-4 indiceDef">
+								<h6	class="titreH6  text-white font-weight-bold"> Accès à aux interfaces numériques:</h6>
+								<div>
+								<ul class="text-white">
+									<li> Avoir des difficultéq fincière à s'équiper, s'abonner</li>
+									<li> Ne pas être équipé en ordinateur</li>
+									<li> Ne pas avoir de FAI</li>
+									<li> Ne pas avoir de couverture THD/HD</li>
+									<li> Ne pas avoir de couverture mobile</li>
+								</ul>
+								</div>
+							</section>
+							<section class="col-lg-3 mb-4 indiceDef">
+								<h6 class="titreH6  mb-4 text-white font-weight-bold"> Capacité d'usage des interfaces numériques: </h6>
+								<div class="text-white">
+								<ul>
+									<li> Etre âgé</li>
+									<li> Etresans diplôme</li>
+									<li> Être en situation de handicap</li>
+								</ul>
+								</div>
+							</section>
+							<section class="col-lg-3 indiceDef">
+								<h6 class="titreH6 mb-4 text-white font-weight-bold"> Compétences Administratives:</h6>
+								<div class="text-white">
+								<ul>
+									<li> Etre jeune</li>
+									<li> Etre né à l'étrangr</li>
+									<li> Être en situation de précarité</li>
+									<li> Être éloigné d'un lieu de médication sociale</li>
+								</ul>
+								</div>
+							
+							</section>
+						</div>
+					</div>
 				</div>
                 <div class="container" id="OneIris" style="visibility:hidden">
                    
