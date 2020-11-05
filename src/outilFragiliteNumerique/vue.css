@@ -1,6 +1,7 @@
 body{
-    background-color: #1b1b1b;
+    background-color: #666688;
 }
+		
 
         #navBar{
             margin: 0;
@@ -8,7 +9,9 @@ body{
             background-color: #2c2c2c;
             border-bottom: solid 2px white;
             border-radius: 0 0 15px 15px;
-            width: 100%;
+			margin-left:auto;
+			margin-right:auto;
+            width: 80%;
         }
         
         .search {
@@ -17,7 +20,7 @@ body{
 
         .searchTerm {
           width: 100%;
-          border: 3px solid #00B4CC;
+          border: 3px solid #3191f8;
           border-right: none;
           border-radius: 10px 0 0 10px;
           outline: none;
@@ -27,20 +30,73 @@ body{
         }
 
         .searchTerm:focus{
-          color: #00B4CC;
+          color: #3191f8;
         }
 
         .searchButton {
           width: 40px;
           height: 36px;
-          border: 1px solid #00B4CC;
-          background: #00B4CC;
+          border: 1px solid #3191f8;
+          background: #3191f8;
           text-align: center;
           color: #fff;
           border-radius: 0 5px 5px 0;
           cursor: pointer;
           font-size: 20px;
         }
+		
+		.welcom{
+			width:100%;
+			color: #727272;
+			text-align:center;
+			border-left:auto;
+			border-right:auto;
+		}
+		
+		#indiceDef{
+			width:100%;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		
+		#indiceDiv{
+			width:95%;
+			margin-left:auto;
+			margin-right:auto;
+			border-top:1px solid #555555;
+			border-top-width:80%;
+		}	
+
+		.indiceDef{
+			height:200px;
+			width:24%;
+			margin-top:20px;
+			border: 2px solid #3191f8;
+			margin-left:auto;
+			margin-right:auto;
+			border-radius:0 20px 0 20px;
+			
+		}
+		
+		.indiceDef h6{
+			margin-top:5px;
+		
+		}
+		.indiceDef div{
+		}
+		
+		.indiceDef ul{
+			padding-left:0;
+			
+		}
+		
+		.indiceDef li{
+			width:100%;
+			font-size:12px;
+		}
+		
+	
+		
         #ElementRegion{
             margin-top: 25px;
         }
@@ -67,6 +123,10 @@ body{
             border-left: .25rem solid #469e0a !important
         }
 		
+		.text-primary{
+			color:#3191f8;
+		}	
+		
 		.indice{
 				width:22%;
 				height:100px;
@@ -80,6 +140,7 @@ body{
 				text-align:center;
 				height:40px;
 				font-size:12px;
+				
 				
 		}
 				
