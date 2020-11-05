@@ -23,6 +23,7 @@ while($row = mysqli_fetch_assoc($result)) {
   echo "\"" .$row['ScoreCompAdmin'] . "\",";
   echo "\"" .$row['NomDept'] . "\",";
   echo "\"" .$row['ScoreDept'] . "\",";*/
+  
   foreach($row as $key => $elem)
   {
     $return_array[$key] = $elem;

@@ -12,7 +12,6 @@ $(function(){
 
                 //Edit the html with the result
                 $("#communeName").html("Nom Commune: " + data.Nom);
-
                 $("#scorePlaceholder").html("Score :"+ data.ScoreDept);
         });
         
