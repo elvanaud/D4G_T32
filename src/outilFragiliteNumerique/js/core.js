@@ -11,8 +11,18 @@ $(function(){
                 }
 
                 //Edit the html with the result
-                $("#communeName").html("Nom Commune: " + data.Nom);
-                $("#scorePlaceholder").html("Score :"+ data.ScoreDept);
+                $("#nameCommune").html(data.Nom);
+                $("#comGlobal").html(data.ScoreGlobal);
+                $("#comAccesInfo").html(data.ScoreAccesInfo);
+                $("#comAccesNum").html(data.ScoreAccesNum);
+                $("#comUsageNum").html(data.ScoreUsageNum);
+                $("#comCompAdmin").html(data.ScoreCompAdmin);
+
+                $("#valueRegion").html(data.ScoreRegion);
+                $("#nameRegion").html(data.NomRegion);
+
+                $("#nomDept").html(data.NomDept);
+                $("#valueDept").html(data.ScoreDept);
         });
         
         return false; // to prevent the default action
