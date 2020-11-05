@@ -35,4 +35,6 @@ $(function(){
         
         return false; // to prevent the default action
     });
+
+    $(".searchTerm").autocomplete("autoComplete.php",{minLength:2});
 });
