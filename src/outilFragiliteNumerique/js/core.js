@@ -18,11 +18,19 @@ $(function(){
                 $("#comUsageNum").html(data.ScoreUsageNum);
                 $("#comCompAdmin").html(data.ScoreCompAdmin);
 
-                $("#valueRegion").html(data.ScoreRegion);
                 $("#nameRegion").html(data.NomRegion);
+                $("#regGlobal").html(data.ScoreRegion);
+                $("#regAccesInfo").html(data.ScoreRegAccesInfo);
+                $("#regAccesNum").html(data.ScoreRegAccesNum);
+                $("#regUsageNum").html(data.ScoreRegUsageNum);
+                $("#regCompAdmin").html(data.ScoreRegCompAdmin);
 
                 $("#nameDept").html(data.NomDept);
-                $("#valueDept").html(data.ScoreDept);
+                $("#deptGlobal").html(data.ScoreDept);
+                $("#deptAccesInfo").html(data.ScoreDeptAccesInfo);
+                $("#deptAccesNum").html(data.ScoreDeptAccesNum);
+                $("#deptUsageNum").html(data.ScoreDeptUsageNum);
+                $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
         });
         
         return false; // to prevent the default action
