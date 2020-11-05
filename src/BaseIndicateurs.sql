@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 05 nov. 2020 à 07:49
+-- Généré le : jeu. 05 nov. 2020 à 11:13
 -- Version du serveur :  10.3.25-MariaDB-0+deb10u1
 -- Version de PHP : 7.3.19-1~deb10u1
 
@@ -43,7 +43,7 @@ INSERT INTO `Communes` (`Nom`, `CodePostal`, `IdDept`) VALUES
 ('Jonzac', '17500', 17),
 ('La Rochelle', '17000', 17);
 
--- -------------------------------------------------------- '
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `Departements`
@@ -53,6 +53,10 @@ CREATE TABLE `Departements` (
   `NumDept` int(11) NOT NULL,
   `NomDept` varchar(30) NOT NULL,
   `ScoreDept` decimal(10,5) NOT NULL,
+  `ScoreDeptAccesInfo` decimal(10,5) NOT NULL,
+  `ScoreDeptAccesNum` decimal(10,5) NOT NULL,
+  `ScoreDeptUsageNum` decimal(10,5) NOT NULL,
+  `ScoreDeptCompAdmin` decimal(10,5) NOT NULL,
   `IdRegion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,26 +69,6 @@ INSERT INTO `Departements` (`NumDept`, `NomDept`, `ScoreDept`, `IdRegion`) VALUE
 (17, 'Charente-Maritime', '5.10000', 5);
 
 -- --------------------------------------------------------
-
---
--- Structure de la table `Regions`
---
-
-CREATE TABLE `Regions` (
-  `NumRegion` int(11) NOT NULL,
-  `NomRegion` varchar(50) NOT NULL,
-  `ScoreRegion` decimal(10,5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `Regions`
---
-
-INSERT INTO `Regions` (`NumRegion`, `NomRegion`, `ScoreRegion`) VALUES
-(5, 'Nouvelle-Aquitaine', '1.00000'),
-(6, 'Occitanie', '2.50000');
-
--- -------------------------------------------------------- 
 
 --
 -- Structure de la table `Iris`
@@ -102,15 +86,37 @@ CREATE TABLE `Iris` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `Communes`
+-- Déchargement des données de la table `Iris`
 --
 
 INSERT INTO `Iris` (`NomIris`, `IdIris`, `ScoreGlobal`, `ScoreAccesInfo`, `ScoreAccesNum`, `ScoreUsageNum`, `ScoreCompAdmin`, `IdCommune`) VALUES
+('La Rochelle', '17000', '6.00000', '6.10000', '6.20000', '6.30000', '6.40000', 'La Rochelle'),
 ('Aigrefeuille-d\'Aunis', '17290', '6.50000', '6.60000', '6.70000', '6.80000', '6.90000', 'Aigrefeuille-d\'Aunis'),
-('Jonzac', '17500', '7.00000', '7.10000', '7.20000', '7.30000', '7.40000', 'Jonzac'),
-('La Rochelle', '17000', '6.00000', '6.10000', '6.20000', '6.30000', '6.40000', 'La Rochelle');
+('Jonzac', '17500', '7.00000', '7.10000', '7.20000', '7.30000', '7.40000', 'Jonzac');
 
--- -------------------------------------------------------- '
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Regions`
+--
+
+CREATE TABLE `Regions` (
+  `NumRegion` int(11) NOT NULL,
+  `NomRegion` varchar(50) NOT NULL,
+  `ScoreRegion` decimal(10,5) NOT NULL,
+  `ScoreRegAccesInfo` decimal(10,5) NOT NULL,
+  `ScoreRegAccesNum` decimal(10,5) NOT NULL,
+  `ScoreRegUsageNum` decimal(10,5) NOT NULL,
+  `ScoreRegCompAdmin` decimal(10,5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `Regions`
+--
+
+INSERT INTO `Regions` (`NumRegion`, `NomRegion`, `ScoreRegion`) VALUES
+(5, 'Nouvelle-Aquitaine', '1.00000'),
+(6, 'Occitanie', '2.50000');
 
 --
 -- Index pour les tables déchargées
@@ -121,7 +127,8 @@ INSERT INTO `Iris` (`NomIris`, `IdIris`, `ScoreGlobal`, `ScoreAccesInfo`, `Score
 --
 ALTER TABLE `Communes`
   ADD PRIMARY KEY (`Nom`),
-  ADD UNIQUE KEY `CodePostal` (`CodePostal`);
+  ADD UNIQUE KEY `CodePostal` (`CodePostal`),
+  ADD KEY `fk_commune_dept` (`IdDept`);
 
 --
 -- Index pour la table `Departements`
@@ -132,15 +139,18 @@ ALTER TABLE `Departements`
   ADD KEY `fk_dept_region` (`IdRegion`);
 
 --
+-- Index pour la table `Iris`
+--
+ALTER TABLE `Iris`
+  ADD PRIMARY KEY (`IdIris`),
+  ADD KEY `fk_iris_commune` (`IdCommune`);
+
+--
 -- Index pour la table `Regions`
 --
 ALTER TABLE `Regions`
   ADD PRIMARY KEY (`NumRegion`),
   ADD UNIQUE KEY `Nom` (`NomRegion`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
 
 --
 -- Contraintes pour les tables déchargées
@@ -157,6 +167,12 @@ ALTER TABLE `Communes`
 --
 ALTER TABLE `Departements`
   ADD CONSTRAINT `fk_dept_region` FOREIGN KEY (`IdRegion`) REFERENCES `Regions` (`NumRegion`);
+
+--
+-- Contraintes pour la table `Iris`
+--
+ALTER TABLE `Iris`
+  ADD CONSTRAINT `fk_iris_commune` FOREIGN KEY (`IdCommune`) REFERENCES `Communes` (`Nom`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
