@@ -24,7 +24,8 @@ $(function(){
         return false; // to prevent the default action
     });
 
-    $(".searchTerm").autocomplete("autoComplete.php",{minLength:2});
+    var arraySugg = ["17000","17001","17002","17003","17aaaa","172000", "bonjour", "bonmatin","bonsoir"];
+    $(".searchTerm").autocomplete({minLength:1, source: "autoComplete.php"}); //"autoComplete.php",
 });
 
 function setHtml(data){
