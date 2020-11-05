@@ -2,13 +2,18 @@ $(function(){
     $(".searchButton").click(function(){
         var searchTerm = $(".searchTerm").val();
 
-        // issue an AJAX request with HTTP post to your server side page.
-        $.post("apiAccess.php", { cityName: searchTerm},
-            function(data){
-                // callack function gets executed
-                //alert("Return data" + data + typeof (data));
-                var tmp = $("#showRes").html();
-                $("#showRes").html(tmp+data);
+        // issue an AJAX request
+        $.getJSON("apiAccess.php", { cityName: searchTerm},
+            function(data){ // callack function
+                console.log("Object contents:");
+                for (const [key, value] of Object.entries(data)) {
+                    console.log(`${key}: ${value}`);
+                }
+
+                //Edit the html with the result
+                $("#communeName").html("Nom Commune: " + data.Nom);
+
+                $("#scorePlaceholder").html("Score :"+ data.ScoreDept);
         });
         
         return false; // to prevent the default action

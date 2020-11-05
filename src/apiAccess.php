@@ -1,5 +1,5 @@
 <?php
-$cityName = $_POST['cityName'];
+$cityName = $_GET['cityName'];
 
 $con = mysqli_connect('localhost','admin','admin','BaseIndicateurs');
 if (!$con) {
@@ -14,28 +14,22 @@ $sql="SELECT com.Nom, dept.NomDept, dept.ScoreDept
 
 $result = mysqli_query($con,$sql);
 
-//echo $result;
-echo "[";
-while($row = mysqli_fetch_array($result)) {
-  echo "\"" .$row['Nom'] . "\",";
+while($row = mysqli_fetch_assoc($result)) {
+  /*echo "\"" .$row['Nom'] . "\",";
   echo "\"" .$row['ScoreGlobal'] . "\",";
   echo "\"" .$row['ScoreAccesInfo'] . "\",";
   echo "\"" .$row['ScoreAccesNum'] . "\",";
   echo "\"" .$row['ScoreUsageNum'] . "\",";
   echo "\"" .$row['ScoreCompAdmin'] . "\",";
   echo "\"" .$row['NomDept'] . "\",";
-  echo "\"" .$row['ScoreDept'] . "\",";
-  /*foreach($row as $key => $elem)
+  echo "\"" .$row['ScoreDept'] . "\",";*/
+  foreach($row as $key => $elem)
   {
-    echo $elem.",";
-  }*/
+    $return_array[$key] = $elem;
+  }
 }
 
-/*foreach($result as $elem)
-  {
-    echo $elem.",";
-  }*/
-echo "]";
+echo json_encode($return_array);
 
 mysqli_close($con);
 ?>
