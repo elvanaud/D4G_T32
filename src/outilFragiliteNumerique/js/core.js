@@ -21,7 +21,7 @@ $(function(){
                 $("#valueRegion").html(data.ScoreRegion);
                 $("#nameRegion").html(data.NomRegion);
 
-                $("#nomDept").html(data.NomDept);
+                $("#nameDept").html(data.NomDept);
                 $("#valueDept").html(data.ScoreDept);
         });
         
