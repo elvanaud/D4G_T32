@@ -1,17 +1,36 @@
+cache= {};
+
 $(function(){
     $(".searchButton").click(function(){
-        var searchTerm = $(".searchTerm").val();
+		
+        searchTerm = $(".searchTerm").val();
+		console.log(cache);
+		
+		if(cache.hasOwnProperty(searchTerm)){
+			data=cache[searchTerm]
+			setHtml(data);
+		}else{
+			// issue an AJAX request
+			var datas=$.getJSON("apiAccess.php", { cityName: searchTerm},
+				function(datas){ // callack function
+					if(datas!=null){					
+						setHtml(datas);
+						cache[searchTerm]=datas;
+					}
+				}	
+			);
+		}
+        
+        return false; // to prevent the default action
+    });
 
-        // issue an AJAX request
-        $.getJSON("apiAccess.php", { cityName: searchTerm},
-            function(data){ // callack function
-                console.log("Object contents:");
-                for (const [key, value] of Object.entries(data)) {
-                    console.log(`${key}: ${value}`);
-                }
+    $(".searchTerm").autocomplete("autoComplete.php",{minLength:2});
+});
 
-                //Edit the html with the result
-                $("#nameCommune").html(data.Nom);
+function setHtml(data){
+	//Edit the html with the result
+				console.log(data);
+				$("#nameCommune").html(data.Nom);
                 $("#comGlobal").html(data.ScoreGlobal);
                 $("#comAccesInfo").html(data.ScoreAccesInfo);
                 $("#comAccesNum").html(data.ScoreAccesNum);
@@ -31,10 +50,6 @@ $(function(){
                 $("#deptAccesNum").html(data.ScoreDeptAccesNum);
                 $("#deptUsageNum").html(data.ScoreDeptUsageNum);
                 $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
-        });
-        
-        return false; // to prevent the default action
-    });
-
-    $(".searchTerm").autocomplete("autoComplete.php",{minLength:2});
-});
+	
+	
+}
