@@ -31,6 +31,15 @@ while($row = mysqli_fetch_assoc($result)) {
   }
 }
 
+if(!$return_array)
+{
+  $return_array["Type"]="EMPTY";
+}
+else
+{
+  $return_array["Type"]="RESULT";
+}
+
 echo json_encode($return_array);
 
 mysqli_close($con);

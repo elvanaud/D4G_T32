@@ -38,6 +38,7 @@ function setHtml(data){
                 $("#comAccesNum").html(data.ScoreAccesNum);
                 $("#comUsageNum").html(data.ScoreUsageNum);
                 $("#comCompAdmin").html(data.ScoreCompAdmin);
+				$("#iris").html(data.IdIris);
 
                 $("#nameRegion").html(data.NomRegion);
                 $("#regGlobal").html(data.ScoreRegion);
@@ -52,6 +53,7 @@ function setHtml(data){
                 $("#deptAccesNum").html(data.ScoreDeptAccesNum);
                 $("#deptUsageNum").html(data.ScoreDeptUsageNum);
                 $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
+				
 	
 	
 }
