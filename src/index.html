@@ -3,33 +3,228 @@
     <head>
         <title>Les galopins énergétiques</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+        <script src="js/Chart.min.js"></script>
+        <script src="js/chart-pie-demo.js"></script>
+        
+        <script>
+           /* $(function(){
+                // Bind a click event to your anchor with id `updateSal`
+                $("#boutonTestJS").click(function(){
+                    // get your employeeID
+                    var empID = "32"; 
+                    // issue an AJAX request with HTTP post to your server side page. 
+                    //Here I used an aspx page in which the update login is written
+                    $.post("apiAccess.php", { EmpID: empID},
+                        function(data){
+                            // callack function gets executed
+                            alert("Return data" + data);
+                    });
+                
+                    // to prevent the default action
+                    return false;
+                });
+            });*/
+
+
+
+
+        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
         <script src="core.js"></script>
 
     </head>
     <body>
-        <button id="boutonTestJS">BOUTON TEST AJAX</button>
-        <div class="container">
-            <section id="navBar" class="row">
-                <section class="col-6">
-                    <H4 style="margin: 0; color:white;">Bienvenue sur notre outil de diagnostique</H4>
-                </section>
-                <section class="col-6">
-                    <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Code postal">
-                        <button type="submit" class="searchButton">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </section>
-            </section>
+    <!--    <button id="boutonTestJS">BOUTON TEST AJAX</button>-->
+       <div class="d-flex flex-column">
+           <div class="container-flex">
+               <section id="navBar" class="row">
+                   <section class="col-6">
+                       <H4 class="titreH4 text-white">Bienvenue sur notre outil de diagnostique</H4>
+                   </section>
+                   <section class="col-6">
+                       <div class="search">
+                           <input type="text" class="searchTerm" placeholder="Code postal">
+                           <button type="submit" class="searchButton">
+                               <i class="fa fa-search"></i>
+                           </button>
+                       </div>
+                   </section>
+               </section>
+                
+               <div class="container">
+                   
+                   <div class="row" id="FirstElement">
+                         
+                        <!-- Earnings (Monthly) Card Example -->
+                       <div class="col-xl-3 col-md-6 mb-4">
+                           <div class="card borderLeftViollet shadow h-100 py-2 cardColor">
+                               <div class="card-body">
+                                   <div class="row no-gutters align-items-center">
+                                       <div class="col mr-2">
+                                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                                           <div class="h5 mb-0 font-weight-bold textColor">$40,000</div>
+                                       </div>
+                                       <div class="col-auto">
+                                           <i class="fas fa-calendar fa-2x textColor"></i>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- Earnings (Monthly) Card Example -->
+                       <div class="col-xl-3 col-md-6 mb-4">
+                           <div class="card borderLeftViollet shadow h-100 py-2 cardColor">
+                               <div class="card-body">
+                                   <div class="row no-gutters align-items-center">
+                                       <div class="col mr-2">
+                                           <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+                                           <div class="h5 mb-0 font-weight-bold textColor">$215,000</div>
+                                       </div>
+                                       <div class="col-auto">
+                                           <i class="fas fa-dollar-sign fa-2x textColor"></i>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- Earnings (Monthly) Card Example -->
+                       <div class="col-xl-3 col-md-6 mb-4">
+                           <div class="card borderLeftViollet shadow h-100 py-2 cardColor">
+                               <div class="card-body">
+                                   <div class="row no-gutters align-items-center">
+                                       <div class="col mr-2">
+                                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                                           <div class="row no-gutters align-items-center">
+                                               <div class="col-auto">
+                                                   <div class="h5 mb-0 mr-3 font-weight-bold textColor">50%</div>
+                                               </div>
+                                               <div class="col">
+                                                   <div class="progress progress-sm mr-2">
+                                                       <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="col-auto">
+                                           <i class="fas fa-clipboard-list fa-2x textColor"></i>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- Pending Requests Card Example -->
+                       <div class="col-xl-3 col-md-6 mb-4">
+                           <div class="card borderLeftViollet shadow h-100 py-2 cardColor">
+                               <div class="card-body">
+                                   <div class="row no-gutters align-items-center">
+                                       <div class="col mr-2">
+                                           <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
+                                           <div class="h5 mb-0 font-weight-bold textColor">18</div>
+                                       </div>
+                                       <div class="col-auto">
+                                           <i class="fas fa-comments fa-2x textColor"></i>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                         
+                   </div>
+                   
+                   <div class="row">
+                       <div class="col-lg-6 mb-4">
+                           <div class="card shadow mb-4 cardColor borderLeftViollet">
+                               <div class="card-header py-3">
+                                   <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                               </div>
+                               <div class="card-body">
+                                   <h4 class="small font-weight-bold textColor">Server Migration <span class="float-right">65%</span></h4>
+                                   <div class="progress mb-4">
+                                       <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                                   <h4 class="small font-weight-bold textColor">Sales Tracking <span class="float-right">40%</span></h4>
+                                   <div class="progress mb-4">
+                                       <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                                   <h4 class="small font-weight-bold textColor">Customer Database <span class="float-right">60%</span></h4>
+                                   <div class="progress mb-4">
+                                       <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                                   <h4 class="small font-weight-bold textColor">Payout Details <span class="float-right">80%</span></h4>
+                                   <div class="progress mb-4">
+                                       <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                                   <h4 class="small font-weight-bold textColor">Account Setup <span class="float-right">Complete!</span></h4>
+                                   <div class="progress">
+                                       <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="col-lg-6 mb-4">
+                           <div class="card shadow mb-4 cardColor borderLeftRed">
+                                <div class="card-header py-3">
+                                   <h6 class="m-0 font-weight-bold text-primary">Info coefs</h6>
+                               </div>
+                               <div class="card-body">
+                                   <h4 class="small font-weight-bold textColor">Votre ville est bien Tantum autem cuique tribuendum, primum quantum ipse efficere possis, deinde etiam quantum ille quem diligas atque adiuves, sustinere. Non enim neque tu possis, quamvis excellas, omnes tuos ad honores amplissimos perducere, ut Scipio P. Rupilium potuit consulem efficere, fratrem eius L. non potuit. Quod si etiam possis quidvis deferre ad alterum, videndum est tamen, quid ille possit sustinere.
+
+</h4>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   
+                   <div class="row">
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4 cardColor borderLeftGreen">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2 textColor">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                        <span class="mr-2 textColor">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                        <span class="mr-2 textColor">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                   </div>
+                   
+               </div>
+
+               
+                
+           </div>
+           
             
-            <section class="row d1" style="margin: 20px 0;">
-                <section class="row" style="width: 100%;">
+            <!--
+            
+            <section class="row d1">
+                <section class="row rowD1">
                     <section class="col-12">
-                        <i class="fa fa-search" style="float: left; font-size: 50px;"></i>
+                        <i class="fa fa-search iconS"></i>
                         <H1>Labbel : </H1>
                     </section>
                 </section>
@@ -50,17 +245,17 @@
                 </section>
             </section>
             
-            <section class="row d1" style="margin: 20px 0;">
-                <section class="col-md-6" style="padding: 0">
-                    <i class="fas fa-info" style="float: left; font-size: 25px; margin: 4px 5px 0 0"></i>
+            <section class="row d1">
+                <section class="col-md-6 section2">
+                    <i class="fas fa-info iconInfo"></i>
                     <H3>L'indice</H3>
                     <p style="padding-left: 10px;">L’application doit permettre d’introduire l’indice par un texte explicatif et de le terminer sur
                             une phrase de conclusion
                     </p>
                 </section>
                 
-                <section class="col-md-6" style="padding: 0">
-                    <i class="fas fa-info" style="float: left; font-size: 25px; margin: 4px 5px 0 0"></i>
+                <section class="col-md-6 section2">
+                    <i class="fas fa-info iconInfo"></i>
                     <h3>Précédente rêquete(s) effectuée(s) :</h3>
                     <ol>
                         <a><li>La Rochelle (17)</li></a>
@@ -71,22 +266,77 @@
                 </section>
             </section>
             
-            
-            
-        </div>
+            <section class="row d1">
+                <section class="row rowD1">
+                    <section class="col-12">
+                        <i class="fa fa-search iconS"></i>
+                        <H1>Labbel : </H1>
+                    </section>
+                </section>
+                
+                 <section class="col-md-3 heightIn">
+                    <section id="r4">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+                
+                 <section class="col-md-3 heightIn">
+                    <section id="r5">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+                
+                <section class="col-md-3 heightIn">
+                    <section id="r6">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+                
+                <section class="col-md-3 heightIn">
+                    <section id="r7">
+                        <p>Habitants :</p>
+                    </section>
+                </section>
+            </section>
+-->
+                        
     </body>
     <style>
+        body{
+            background-color: #1b1b1b;
+        }
+/*        .titreH4{
+            margin: 0;
+            color: white;
+        }
         p{
             margin: 0;
         }
+*/
         #navBar{
-            //margin-top: 1px;
+            margin: 0;
             padding: 10px 0;
-            background-color: rgba(0, 0, 0, .75);
-            border-bottom: solid 2px black;
+            background-color: #2c2c2c;
+            border-bottom: solid 2px white;
             border-radius: 0 0 15px 15px;
+            width: 100%;
         }
         
+        .search {
+          display: flex;
+        }
+/*        .rowD1{
+            width: 100%;
+        }
+        .iconS{
+            float: left;
+            font-size: 50px;
+        }
+        .iconInfo{
+            float: left;
+            font-size: 25px;
+            margin: 4px 5px 0 0
+        }
         .heightIn{
             height: inherit
         }
@@ -95,16 +345,16 @@
             margin-top: 15px;
         }
         
-        .search {
-          display: flex;
-        }
         
         .d1{
             border:solid .3px black;
             padding: 1%;
             border-radius: 10px;
+            margin: 20px 0;
         }
-        
+        .section2{
+            padding: 0;
+        }
         #r1{
             background-color: #418bca;
             border-radius: 8px;
@@ -120,7 +370,7 @@
             border-radius: 8px;
             height: 200px;
         }
-
+*/
         .searchTerm {
           width: 100%;
           border: 3px solid #00B4CC;
@@ -147,6 +397,23 @@
           cursor: pointer;
           font-size: 20px;
         }
-
+        #FirstElement{
+            margin-top: 25px;
+        }
+        .cardColor{
+            background-color: #2c2c2c;
+        }
+        .textColor{
+            color: #727272;
+        }
+        .borderLeftViollet{
+            border-left: .25rem solid #4e73df !important
+        }
+        .borderLeftRed{
+            border-left: .25rem solid #ff5756 !important
+        }
+        .borderLeftGreen{
+            border-left: .25rem solid #469e0a !important
+        }
     </style>
 </html>
