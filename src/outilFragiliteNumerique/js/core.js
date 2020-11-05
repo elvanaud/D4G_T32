@@ -6,9 +6,14 @@ $(function(){
         searchTerm = $(".searchTerm").val();
 		console.log(cache);
 		
+		oneiris=document.getElementById("OneIris");
+		welcomDiv=document.getElementById("welcomDiv");
+		searchTab=document.getElementById("searchTab");
+		
 		if(cache.hasOwnProperty(searchTerm)){
 			data=cache[searchTerm]
 			setHtml(data);
+			next();
 		}else{
 			// issue an AJAX request
 			$.getJSON("apiAccess.php", { cityName: searchTerm},
@@ -21,10 +26,9 @@ $(function(){
                     if(data === null || data["Type"]==="EMPTY")
                     {
                         alert("recherche incorrecte !");
-                    }
-
-
-
+                    }else{
+						next();
+					}
                     console.log("Object contents:");
                     for (const [key, value] of Object.entries(data)) {
                         console.log(`${key}: ${value}`);
@@ -39,6 +43,14 @@ $(function(){
     $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php"});
 });
 
+function next(){
+	if(searchTab.style.visibility=="hidden"){
+		welcomDiv.remove();
+		searchTab.style.visibility="visible";
+		oneiris.style.visibility="visible";
+	}
+}
+
 
 function setHtml(data){
 	//Edit the html with the result
@@ -49,7 +61,8 @@ function setHtml(data){
     $("#comAccesNum").html(data.ScoreAccesNum);
     $("#comUsageNum").html(data.ScoreUsageNum);
     $("#comCompAdmin").html(data.ScoreCompAdmin);
-
+	$("#iris").html(data.IdIris);
+	
     $("#nameRegion").html(data.NomRegion);
     $("#regGlobal").html(data.ScoreRegion);
     $("#regAccesInfo").html(data.ScoreRegAccesInfo);
