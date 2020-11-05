@@ -13,49 +13,130 @@
     </head>
     <body>
        <div class="d-flex flex-column">
-           <div class="container-flex">
-               <section id="navBar" class="row">
-                   <section class="col-6">
-                       <H4 class="titreH4 text-white">Bienvenue sur notre outil de diagnostique</H4>
-                   </section>
-                   <section class="col-6">
-                       <div class="search">
-                           <input type="text" class="searchTerm" placeholder="Code postal">
-                           <button type="submit" class="searchButton">
-                               <i class="fa fa-search"></i>
-                           </button>
-                       </div>
-                   </section>
-               </section>
-                
-               <div class="container">
+	   
+				<div class="container-flex">
+				   <section id="navBar" class="row">
+					   <section class="col-6">
+						   <H4 class="titreH4 text-white">Bienvenue sur notre outil de diagnostique</H4>
+					   </section>
+					   <section class="col-6">
+						   <div class="search">
+							   <input type="text" class="searchTerm" placeholder="Code postal">
+							   <button type="submit" class="searchButton">
+								   <i class="fa fa-search"></i>
+							   </button>
+						   </div>
+					   </section>
+				   </section>
+               </div> 
+			   
+                <div class="container">
                    
-                    <div class="row commune" id="ElementRegion">
-                        <div class="col-lg-10 mb-4">
-                            <div class="card shadow mb-4 cardColor borderLeftRed">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Région : <span class="textColor" id="nameRegion">NameRégion</span></h6>
-                                </div>
-                                <div class="indiceC indiceCA">
-                                    <span class="indiceValue" id="valueRegion">150</span>
-                                </div>
-                            </div>
-                        </div>
-					</div>
-					
-                    <div class="row commune" id="ElementDepartement">    
+                    <div class="row commune" id="ElementRegion" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Département : <span class="textColor" id="nameRegion">NameDep</span></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Région : <span class="textColor" id="nameRegion">Nom de la Région</span></h6>
                                 </div>
-                                <div class="indiceC indiceCA">
-                                     <span class="indiceValue" id="valueCommune">0</span>
-                                </div>
+								<div class="row" style="width: 100%;">
+									<section id="ComIndiceAccess" class="indice">
+										<p class="m-0 font-weight-bold text-primary" >Accès aux informations: </p>
+							 
+										<div class="indiceC indiceCA">
+											<span class="indiceValue" id="regAccesInfo">0</span>
+										</div>
+									</section>
+									<section id="ComIndiceAccess" class="indice">
+										<p class="m-0 font-weight-bold text-primary" >Accès aux interfaces Numériques: </p>
+										
+										<div class="indiceC indiceCA">
+											<span class="indiceValue" id="regAccesNum">0</span>
+										</div>
+									</section>
+									<section id="ComIndiceAccess" class="indice">
+										<p class="m-0 font-weight-bold text-primary" >Capacités d'usage des interfaces Numériques: </p>
+										
+										<div class="indiceC indiceCA">
+											<span class="indiceValue" id="regUsageNum">0</span>
+										</div>
+									</section>
+									<section id="ComIndiceAccess" class="indice">
+									<p class="m-0 font-weight-bold text-primary">Compétences Administratives: </p>
+                                 
+									<div class=" indiceCA indiceC" >
+										<span class="indiceValue" id="regCompAdmin">0</span>
+									</div>
+								</section>
+								</div>
                             </div>
                         </div>
-                   </div>
-				   
+						<div class="col-xl-2 col-md-6 mb-4" >
+                                <div class="card shadow mb-4 cardColor borderLeftRed">
+                                    <div class="card-header py-3">
+                                        <p class="m-0 font-weight-bold text-primary" style="font-size: 12px">Score global</p>
+                                    </div>
+									<section class="scoreGlob">
+										<div class="indiceG ">
+											 <span class="indiceValue" id="comGlobal">150</span>
+										</div>
+									</section>
+								</div>
+						</div>
+					</div>
+                   <div class="row row-cols-2 departement" id="ElementDepartement" >    
+						
+                        <div class="col-xl-10 mb-4">
+                            <div class="card shadow mb-4 cardColor borderLeftRed" >
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Département : <span class="textColor" id="nameDept">Nom du Departement</span></h6>
+                                </div>
+								<div class="row" style="width: 100%;">
+                                <section id="ComIndiceAccess" class="indice">
+									<p class="m-0 font-weight-bold text-primary" >Accès aux informations: </p>
+                         
+									<div class="indiceC indiceCA">
+										<span class="indiceValue" id="deptAccesInfo">0</span>
+									</div>
+								</section>
+								<section id="ComIndiceAccess" class="indice">
+									<p class="m-0 font-weight-bold text-primary" >Accès aux interfaces Numériques: </p>
+                                    
+									<div class="indiceC indiceCA">
+										<span class="indiceValue" id="deptAccesNum">0</span>
+									</div>
+								</section>
+								<section id="ComIndiceAccess" class="indice">
+									<p class="m-0 font-weight-bold text-primary" >Capacités d'usage des interfaces Numériques: </p>
+                                    
+									<div class="indiceC indiceCA">
+										<span class="indiceValue" id="deptUsageNum">0</span>
+									</div>
+								</section>
+								<section id="ComIndiceAccess" class="indice">
+									<p class="m-0 font-weight-bold text-primary">Compétences Administratives: </p>
+                                 
+									<div class=" indiceCA indiceC" >
+										<span class="indiceValue" id="deptCompAdmin">0</span>
+									</div>
+								</section>
+								</div>
+                            </div>
+                        </div>
+						<div class="col-xl-2 col-md-6 mb-4" >
+                                <div class="card shadow mb-4 cardColor borderLeftRed">
+                                    <div class="card-header py-3">
+                                        <p class="m-0 font-weight-bold text-primary" style="font-size: 12px">Score global</p>
+                                    </div>
+									<section class="scoreGlob">
+										<div class="indiceG ">
+											 <span class="indiceValue" id="deptGlobal">150</span>
+										</div>
+									
+									</section>
+                       
+								</div>
+						</div>
+					</div>
 				   <div class="row commune" id="ElementCommune" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
@@ -64,51 +145,54 @@
                                 </div>
 								<div class="row" style="width: 100%;">
                                 <section id="ComIndiceAccess" class="indice">
-									<p class="m-0 font-weight-bold text-primary" style="font-size: 10px">Accès aux informations: </p>
+									<p class="m-0 font-weight-bold text-primary" >Accès aux informations: </p>
                          
 									<div class="indiceC indiceCA">
 										<span class="indiceValue" id="comAccesInfo">0</span>
 									</div>
 								</section>
 								<section id="ComIndiceAccess" class="indice">
-									<p class="m-0 font-weight-bold text-primary" style="font-size: 10px">Accès aux interfaces Numériques: </p>
+									<p class="m-0 font-weight-bold text-primary" >Accès aux interfaces Numériques: </p>
                                     
 									<div class="indiceC indiceCA">
 										<span class="indiceValue" id="comAccesNum">0</span>
 									</div>
 								</section>
 								<section id="ComIndiceAccess" class="indice">
-									<p class="m-0 font-weight-bold text-primary" style="font-size: 10px">Capacités d'usage des interfaces Numériques: </p>
+									<p class="m-0 font-weight-bold text-primary" >Capacités d'usage des interfaces Numériques: </p>
                                     
 									<div class="indiceC indiceCA">
 										<span class="indiceValue" id="comUsageNum">0</span>
 									</div>
 								</section>
 								<section id="ComIndiceAccess" class="indice">
-									<p class="m-0 font-weight-bold text-primary" style="font-size: 10px">Compétences Administratives: </p>
+									<p class="m-0 font-weight-bold text-primary">Compétences Administratives: </p>
                                  
-									<div class="indiceC indiceCA">
+									<div class=" indiceCA indiceC" >
 										<span class="indiceValue" id="comCompAdmin">0</span>
 									</div>
 								</section>
 								</div>
                             </div>
                         </div>
-						<div class="col-xl-2 col-md-6 mb-3 padding0">
+						<div class="col-xl-2 col-lg-2 col-md-6 mb-4" >
                                 <div class="card shadow mb-4 cardColor borderLeftRed">
                                     <div class="card-header py-3">
-                                        <p class="m-0 font-weight-bold text-primary" style="font-size: 10px">Score global</p>
+                                        <p class="m-0 font-weight-bold text-primary" style="font-size: 12px">Score global</p>
                                     </div>
-                                    <div class="indiceC indiceCA">
-                                         <span class="indiceValue" id="comGlobal">150</span>
-                                    </div>
-                                </div>
-                            </div>
+									<section class="scoreGlob">
+										<div class="indiceG ">
+											 <span class="indiceValue" id="comGlobal">150</span>
+										</div>
+									</section>
+                       
+								</div>
+						</div>
                    </div>
     
-                   
+            </div>       
 
-                   
+    </div>               
 
                       
 </body>

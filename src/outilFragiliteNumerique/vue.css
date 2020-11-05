@@ -41,10 +41,14 @@ body{
           cursor: pointer;
           font-size: 20px;
         }
-        #firstElement{
+        #ElementRegion{
             margin-top: 25px;
         }
 		
+		#ElementRegion,#ElementCommune,#ElementDepartement{
+			position:block;
+		}
+			
 		
         .cardColor{
             background-color: #2c2c2c;
@@ -53,7 +57,8 @@ body{
             color: #727272;
         }
         .borderLeftViollet{
-            border-left: .25rem solid #4e73df !important
+            border-left: .25rem solid #4e73df !important;
+			
         }
         .borderLeftRed{
             border-left: .25rem solid #ff5756 !important
@@ -64,33 +69,49 @@ body{
 		
 		.indice{
 				width:22%;
+				height:100px;
 				margin-left:3%;
+				margin-top:10px;
 				text-align:center;
+				margin-bottom:10px;
 		}	
 
-		.indice{
-				margin-bottom:5px;
+		.indice p{
+				text-align:center;
+				height:40px;
+				font-size:12px;
 				
 		}
-		p.text-primary{
-				font-size:100px;
-		}	
-		
+				
         .indiceC{
             width: 100px;
-            height: 100px;
+			height:60%;
             border: solid 1px white;
             margin-left: auto;
             margin-right: auto;
+			text-align:center;
             border-radius: 15px;
         }
-        .indiceCA{
-            margin-bottom: 25px;
-        }
+        
         
         .indiceValue{
             position:relative;
-            top: 36px;
-            right: -36px;
-            color: black;
-        }
+			top:15px;
+            color: white;
+			
+			}
+		.scoreGlob{
+			margin-top:20px;
+			margin-bottom:20px;
+			height:60px;
+		}
+		
+		.indiceG{
+			width: 100px;
+			height:100%;
+			border: solid 1px white;
+            margin-left: auto;
+            margin-right: auto;
+			text-align:center;
+            border-radius: 15px;
+		}
