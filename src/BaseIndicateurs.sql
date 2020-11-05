@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `Communes` (
   `Nom` varchar(50) NOT NULL,
   `CodePostal` varchar(5) NOT NULL,
-  `IdDept` int(11) NOT NULL
+  `IdDept` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -50,7 +50,7 @@ INSERT INTO `Communes` (`Nom`, `CodePostal`, `IdDept`) VALUES
 --
 
 CREATE TABLE `Departements` (
-  `NumDept` int(11) NOT NULL,
+  `NumDept` varchar(3) NOT NULL,
   `NomDept` varchar(30) NOT NULL,
   `ScoreDept` decimal(10,5) NOT NULL,
   `ScoreDeptAccesInfo` decimal(10,5) NOT NULL,
@@ -127,7 +127,6 @@ INSERT INTO `Regions` (`NumRegion`, `NomRegion`, `ScoreRegion`) VALUES
 --
 ALTER TABLE `Communes`
   ADD PRIMARY KEY (`Nom`),
-  ADD UNIQUE KEY `CodePostal` (`CodePostal`),
   ADD KEY `fk_commune_dept` (`IdDept`);
 
 --
