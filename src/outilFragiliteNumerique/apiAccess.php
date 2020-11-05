@@ -1,7 +1,7 @@
 <?php
 $irisId = $_GET['cityName'];
 
-$con = mysqli_connect('localhost','admin','admin','BaseIndicateurs');
+$con = mysqli_connect('localhost','admin','design4greenPSW','BaseIndicateurs'); //rootAdmin
 if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }
