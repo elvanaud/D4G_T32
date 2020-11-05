@@ -5,6 +5,11 @@ $(function(){
         // issue an AJAX request
         $.getJSON("apiAccess.php", { cityName: searchTerm},
             function(data){ // callack function
+                if(!data)
+                {
+                    alert("recherche incorrecte !");
+                }
+
                 console.log("Object contents:");
                 for (const [key, value] of Object.entries(data)) {
                     console.log(`${key}: ${value}`);

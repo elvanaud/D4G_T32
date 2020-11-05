@@ -31,6 +31,11 @@ while($row = mysqli_fetch_assoc($result)) {
   }
 }
 
+if(!$return_array)
+{
+  //$return_array[
+}
+
 echo json_encode($return_array);
 
 mysqli_close($con);
