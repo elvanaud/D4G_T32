@@ -1,3 +1,4 @@
+
 cache= {};
 
 $(function(){
@@ -11,12 +12,12 @@ $(function(){
 			setHtml(data);
 		}else{
 			// issue an AJAX request
-			var datas=$.getJSON("apiAccess.php", { cityName: searchTerm},
+			$.getJSON("apiAccess.php", { cityName: searchTerm},
 				function(datas){ // callack function
-					if(datas!=null){					
+										
 						setHtml(datas);
 						cache[searchTerm]=datas;
-					}
+				
 				}	
 			);
 		}
