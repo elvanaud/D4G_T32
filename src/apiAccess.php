@@ -8,10 +8,9 @@ if (!$con) {
 
 //mysqli_select_db($con,"ajax_demo");
 
-$sql="SELECT com.Nom, com.ScoreGlobal, com.ScoreAccesInfo, com.ScoreAccesNum, com.ScoreUsageNum,
-    com.ScoreCompAdmin, dept.NomDept, dept.ScoreDept
+$sql="SELECT com.Nom, dept.NomDept, dept.ScoreDept
   FROM Communes com,Departements dept 
-  WHERE com.Nom = '".$cityName."' AND com.IdDept = dept.IdDept";
+  WHERE com.Nom = '".$cityName."' AND com.IdDept = dept.NumDept";
 
 $result = mysqli_query($con,$sql);
 
