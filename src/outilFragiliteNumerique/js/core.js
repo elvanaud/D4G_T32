@@ -11,8 +11,26 @@ $(function(){
                 }
 
                 //Edit the html with the result
-                $("#communeName").html("Nom Commune: " + data.Nom);
-                $("#scorePlaceholder").html("Score :"+ data.ScoreDept);
+                $("#nameCommune").html(data.Nom);
+                $("#comGlobal").html(data.ScoreGlobal);
+                $("#comAccesInfo").html(data.ScoreAccesInfo);
+                $("#comAccesNum").html(data.ScoreAccesNum);
+                $("#comUsageNum").html(data.ScoreUsageNum);
+                $("#comCompAdmin").html(data.ScoreCompAdmin);
+
+                $("#nameRegion").html(data.NomRegion);
+                $("#regGlobal").html(data.ScoreRegion);
+                $("#regAccesInfo").html(data.ScoreRegAccesInfo);
+                $("#regAccesNum").html(data.ScoreRegAccesNum);
+                $("#regUsageNum").html(data.ScoreRegUsageNum);
+                $("#regCompAdmin").html(data.ScoreRegCompAdmin);
+
+                $("#nameDept").html(data.NomDept);
+                $("#deptGlobal").html(data.ScoreDept);
+                $("#deptAccesInfo").html(data.ScoreDeptAccesInfo);
+                $("#deptAccesNum").html(data.ScoreDeptAccesNum);
+                $("#deptUsageNum").html(data.ScoreDeptUsageNum);
+                $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
         });
         
         return false; // to prevent the default action
