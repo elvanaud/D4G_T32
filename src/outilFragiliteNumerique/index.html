@@ -20,9 +20,13 @@
         <script src="js/core.js"></script>
     </head>
     <body>
-       <div class="d-flex flex-column">
+		<style>
+			body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+		</style>
+       <div >
 	   
-				<div class="container-flex">
+				
+			   <div class="container-flex" id="searchBar" style="visibility:hidden">
 				   <section id="navBar" class="row">
 					   <section class="col-6">
 						   <H4 class="titreH4 text-white">Outil de visualisation de l'indice de fragilité</H4>
@@ -38,7 +42,25 @@
 				   </section>
                </div> 
 			   
-                <div class="container">
+			   
+			   <div class="w3-top" id="welcomDiv" >
+				   <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+						<h1 class="titreH1 text-white w3-xlarge welcom"> Outil de visualisation de l'indice de fragilité</h1>
+						<br>
+						<h4 class="titreH4 text-white w3-xlarge welcom"> Bienvenue sur l'outil permettant la visualisation de l'indice de fragilité numérique d'une commune par rapport à son département et sa région.</h4>
+				   
+						<br>
+						<section class="col-8" style="margin-left:auto;margin-right:auto;">
+						   <div class="search" >
+							   <input type="text" class="searchTerm" placeholder="Code postal">
+							   <button type="submit" class="searchButton">
+								   <i class="fa fa-search"></i>
+							   </button>
+						   </div>
+					   </section>
+					</header>
+				</div>
+                <div class="container" id="OneIris" style="visibility:hidden">
                    
                     <div class="row commune" id="ElementRegion" >    
                         <div class="col-lg-10 mb-4">

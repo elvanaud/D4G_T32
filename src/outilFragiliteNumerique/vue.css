@@ -1,6 +1,8 @@
 body{
             background-color: #666688;
         }
+		
+		
 
         #navBar{
             margin: 0;
@@ -43,6 +45,15 @@ body{
           cursor: pointer;
           font-size: 20px;
         }
+		
+		.welcom{
+			width:100%;
+			color: #727272;
+			text-align:center;
+			border-left:auto;
+			border-right:auto;
+		}
+		
         #ElementRegion{
             margin-top: 25px;
         }
