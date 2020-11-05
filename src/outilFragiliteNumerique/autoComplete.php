@@ -7,7 +7,7 @@
         die('Could not connect: ' . mysqli_error($con));
       }
 
-    $sql="SELECT NomIris,IdIris FROM Iris WHERE IdIris LIKE '%$codePostal%'";
+    $sql="SELECT NomIris,IdIris FROM Iris WHERE IdCodePostal LIKE '%$codePostal%'";
     $result = mysqli_query($con,$sql) or die(mysqli_error());
 
     if($result)

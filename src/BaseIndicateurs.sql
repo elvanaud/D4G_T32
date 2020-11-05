@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Communes` (
   `Nom` varchar(50) NOT NULL,
-  `CodePostal` varchar(5) NOT NULL,
+  `CodePostal` varchar(6) NOT NULL,
   `IdDept` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -82,17 +82,10 @@ CREATE TABLE `Iris` (
   `ScoreAccesNum` decimal(10,5) NOT NULL,
   `ScoreUsageNum` decimal(10,5) NOT NULL,
   `ScoreCompAdmin` decimal(10,5) NOT NULL,
-  `IdCommune` varchar(50) NOT NULL
+  `IdCommune` varchar(50) NOT NULL,
+  `IdCodePostal` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `Iris`
---
-
-INSERT INTO `Iris` (`NomIris`, `IdIris`, `ScoreGlobal`, `ScoreAccesInfo`, `ScoreAccesNum`, `ScoreUsageNum`, `ScoreCompAdmin`, `IdCommune`) VALUES
-('La Rochelle', '17000', '6.00000', '6.10000', '6.20000', '6.30000', '6.40000', 'La Rochelle'),
-('Aigrefeuille-d\'Aunis', '17290', '6.50000', '6.60000', '6.70000', '6.80000', '6.90000', 'Aigrefeuille-d\'Aunis'),
-('Jonzac', '17500', '7.00000', '7.10000', '7.20000', '7.30000', '7.40000', 'Jonzac');
 
 -- --------------------------------------------------------
 
@@ -126,7 +119,7 @@ INSERT INTO `Regions` (`NumRegion`, `NomRegion`, `ScoreRegion`) VALUES
 -- Index pour la table `Communes`
 --
 ALTER TABLE `Communes`
-  ADD PRIMARY KEY (`Nom`),
+  ADD PRIMARY KEY (`Nom`,`CodePostal`),
   ADD KEY `fk_commune_dept` (`IdDept`);
 
 --
@@ -141,8 +134,7 @@ ALTER TABLE `Departements`
 -- Index pour la table `Iris`
 --
 ALTER TABLE `Iris`
-  ADD PRIMARY KEY (`IdIris`),
-  ADD KEY `fk_iris_commune` (`IdCommune`);
+  ADD PRIMARY KEY (`IdIris`);
 
 --
 -- Index pour la table `Regions`
@@ -171,7 +163,7 @@ ALTER TABLE `Departements`
 -- Contraintes pour la table `Iris`
 --
 ALTER TABLE `Iris`
-  ADD CONSTRAINT `fk_iris_commune` FOREIGN KEY (`IdCommune`) REFERENCES `Communes` (`Nom`);
+  ADD CONSTRAINT `fk_iris_commune` FOREIGN KEY (`IdCommune`,`IdCodePostal`) REFERENCES `Communes` (`Nom`,`CodePostal`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
