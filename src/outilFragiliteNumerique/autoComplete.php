@@ -17,7 +17,7 @@
         while($row=mysqli_fetch_array($result))
         {
             //echo $row['NomIris']."\n";
-            $arraySugg[]=$row['NomIris'] ." - " .$row['IdIris'];
+            $arraySugg[]=["label" => $row['NomIris'], "value" =>  $row['IdIris']];
         }
     }
     //echo $codePostal;
