@@ -7,14 +7,14 @@
         die('Could not connect: ' . mysqli_error($con));
       }
 
-    $sql="SELECT NomIris,IdIris FROM Iris WHERE IdCodePostal LIKE '%$codePostal%'";
+    $sql="SELECT NomIris,IdIris,IdCommune FROM Iris WHERE IdCodePostal LIKE '%$codePostal%'";
     $result = mysqli_query($con,$sql) or die(mysqli_error());
 
     if($result)
     {
         while($row=mysqli_fetch_array($result))
         {
-            $arraySugg[]=["label" => $row['NomIris'], "value" =>  $row['IdIris']];
+            $arraySugg[]=["label" => $row['IdCommune']." - ".$row['IdIris']." - ".$row['NomIris'], "value" =>  $row['IdIris']];
         }
     }
     

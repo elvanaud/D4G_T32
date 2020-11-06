@@ -19,7 +19,7 @@ $(function(){
 			next();
 		}else{
 			// issue an AJAX request
-			$.getJSON("apiAccess.php", { cityName: searchTerm},
+			$.getJSON("apiAccess.php", { irisId: searchTerm},
 				function(data){ // callack function
 									
 					setHtml(data);
@@ -43,7 +43,11 @@ $(function(){
         return false; // to prevent the default action
     });
     
-    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php"});
+    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php", 
+        select: function( event, ui ) {
+            $(".searchTerm").val(ui.item.value);
+            $(".searchButton").click();
+        }});
 });
 
 function next(){
@@ -92,7 +96,7 @@ function setHtml(data){
     }else if(data.comGlobal > 50){
         $("#cclAvis").html(", félicitation votre score est bon cela s'explique par une population variée");
         $("#avisScore").html("BON");
-        $("#avisScore")..addClass("text-warning");
+        $("#avisScore").addClass("text-warning");
     }else if(data.comGlobal > 25){
         $("#cclAvis").html(", votre score est corect cela s'explique par une population variée");
         $("#avisScore").html("MOYENS");
@@ -101,5 +105,5 @@ function setHtml(data){
         $("#cclAvis").html(", votre score est mauvais cela s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
         $("#avisScore").addClass("text-dark");
-
+    }
 }
