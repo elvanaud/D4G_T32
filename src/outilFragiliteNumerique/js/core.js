@@ -84,6 +84,7 @@ function setHtml(data){
     $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
     
     $("#annonceCcl").html("La valeur de votre indice est : ");
+    console.log(data.comGlobal);
     if(data.comGlobal > 150){
         $("#cclAvis").html(", félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
