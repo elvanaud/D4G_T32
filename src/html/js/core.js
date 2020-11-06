@@ -87,22 +87,22 @@ function setHtml(data){
     $("#deptUsageNum").html(data.ScoreDeptUsageNum);
     $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
     
-    $("#annonceCcl").html("La valeur de votre indice est : ");
-    console.log(data.comGlobal);
-    if(data.comGlobal > 150){
-        $("#cclAvis").html(", félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
+    $("#textCcl").css("display", "block");
+    var sg = data.ScoreGlobal;
+    if(sg >= 150){
+        $("#cclAvis").html(", cela peut s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
         $("#avisScore").addClass("text-success");
-    }else if(data.comGlobal > 50){
-        $("#cclAvis").html(", félicitation votre score est bon cela s'explique par une population variée");
+    }else if(sg < 150 && sg >= 50 ){
+        $("#cclAvis").html(", cela peut s'explique par une population variée");
         $("#avisScore").html("BON");
         $("#avisScore").addClass("text-warning");
-    }else if(data.comGlobal > 25){
-        $("#cclAvis").html(", votre score est corect cela s'explique par une population variée");
+    }else if(sg < 50 && sg >= 25){
+        $("#cclAvis").html(", cela peut s'explique par une population variée");
         $("#avisScore").html("MOYENS");
-        $("#avisScore").addClass("text-warning");
-    }else{
-        $("#cclAvis").html(", votre score est mauvais cela s'explique par une population vieille");
+        $("#avisScore").addClass("text-danger");
+    }else if (sg < 25 && sg >=0){
+        $("#cclAvis").html(", cela peut s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
         $("#avisScore").addClass("text-dark");
     }
