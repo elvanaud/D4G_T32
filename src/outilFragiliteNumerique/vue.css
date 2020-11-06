@@ -184,16 +184,19 @@ body{
         .width{
             width: 100%;
         }
-		
-#ElementPhrase{
+#elementPhrase{
     height: 150px;
     padding-left: 15px;
     padding-right: 15px;
 }
-#ElementPhrase i.icon{
+#elementPhrase i.icon{
     color: red;
     font-size: 100px;
     margin-top: 45px;
+}
+#elementPhrase h5.ccl{
+    padding: 40px 0 0 15px;
+    width: 100%;
 }
 
 /* Footer */
