@@ -90,21 +90,34 @@ function setHtml(data){
     
     $("#textCcl").css("display", "block");
     var sg = data.ScoreGlobal;
-    if(sg >= 150){
-        $("#cclAvis").html(", cela peut s'explique par une population dynamique et hétérogène");
+	if(sg <30 && sg >=0){
         $("#avisScore").html("EXCELENT");
         $("#avisScore").addClass("text-success");
-    }else if(sg < 150 && sg >= 50 ){
-        $("#cclAvis").html(", cela peut s'explique par une population variée");
-        $("#avisScore").html("BON");
+	}else if(sg < 60 && sg >= 30){
+		$("#avisScore").html("BON");
         $("#avisScore").addClass("text-warning");
-    }else if(sg < 50 && sg >= 25){
-        $("#cclAvis").html(", cela peut s'explique par une population variée");
+    }else if(sg < 90 && sg >= 60 ){
         $("#avisScore").html("MOYENS");
         $("#avisScore").addClass("text-danger");
-    }else if (sg < 25 && sg >=0){
-        $("#cclAvis").html(", cela peut s'explique par une population vieille");
+    }else if (sg > 120 ){
         $("#avisScore").html("MAUVAIS");
         $("#avisScore").addClass("text-dark");
-    }
+	}
+	
+	var max=Math.max(data.ScoreAccesInfo,data.ScoreAccesNum,data.ScoreUsageNum,data.ScoreCompAdmin);
+	var phrase='<p>';
+	if (data.ScoreAccesInfo==max){
+		phrase=phrase+"La plus grande partie du score global est causé par l'accès aux information. Essayer d'améliorer l'accès aux informations pour reduire l'indice de fragilité global de la commune. ";
+	}else if(data.ScoreAccesNum==max){
+		phrase=phrase+"La plus partie du score global est causé par l'accès aux interfaces numériques. Essayer d'améliorer l'accès aux interfaces numériques pour reduire l'indice de fragilité global de la commune. ";
+	}else if(data.ScoreUsageNum==max){
+		phrase=phrase+"La plus partie du score global est causé par le manque de capacités d'usage des interfaces Numériques. Essayer d'améliorer les  capacités d'usage des interfaces Numériques pour reduire l'indice de fragilité global de la commune. ";
+	}else if(data.ScoreCompAdmin==max){
+		phrase=phrase+"La plus partie du score global est causé par le manque compétences administratives. Essayer d'améliorer les compétences administratives pour reduire l'indice de fragilité global de la commune. ";	
+	}
+	
+	phrase=phrase+'</p>';
+	$("#cclAvis").html(phrase);
+
 }
+
