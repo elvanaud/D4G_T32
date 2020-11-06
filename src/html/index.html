@@ -33,7 +33,7 @@
 					   </section>
 					   <section class="col-6">
 						   <div class="search">
-							   <input type="text" class="searchTerm" placeholder="Code postal">
+							   <input type="text" class="searchTerm" id="searchRes" placeholder="Code postal">
 							   <button type="submit" class="searchButton">
 								   <i class="fa fa-search"></i>
 							   </button>
@@ -53,7 +53,7 @@
 						<br>
 						<section class="col-8" style="margin-left:auto;margin-right:auto;">
 						   <div class="search" >
-							   <input type="text" class="searchTerm" placeholder="Entrez le code postal d'une commune ">
+							   <input type="text" class="searchTerm" id="searchAcc" placeholder="Entrez le code postal d'une commune ">
 							   <button type="submit" class="searchButton">
 								   <i class="fa fa-search"></i>
 							   </button>
@@ -288,11 +288,12 @@
     
            </div> 
            
-           <<div class="container">        
-               <div class="row commune" id="ElementPhrase">
-                </div>
+
+           <div class="container" id="textCcl">
+               <div class="row commune" id="elementPhrase">
+                   <h5 class="m-0 font-weight-bold text-grey text-center ccl" id="annonceCcl" style="">La valeur de votre indice est : <span id="avisScore"></span><span id="cclAvis"></span></h5>
+               </div>
            </div>
-           
         </div> 
         
         <div class="footer">

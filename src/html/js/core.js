@@ -1,9 +1,10 @@
 cache= {};
+searchBarID = "#searchAcc";
 
 $(function(){
     $(".searchButton").click(function(){
-		
-        searchTerm = $(".searchTerm").val();
+        searchTerm = $(searchBarID).val();
+        
 		console.log(cache);
 		
 		oneiris=document.getElementById("OneIris");
@@ -18,7 +19,7 @@ $(function(){
 			next();
 		}else{
 			// issue an AJAX request
-			$.getJSON("apiAccess.php", { cityName: searchTerm},
+			$.getJSON("apiAccess.php", { irisId: searchTerm},
 				function(data){ // callack function
 									
 					setHtml(data);
@@ -42,15 +43,21 @@ $(function(){
         return false; // to prevent the default action
     });
     
-    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php"});
+    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php", 
+        select: function( event, ui ) {
+            $(".searchTerm").val(ui.item.value);
+            $(".searchButton").click();
+        }});
 });
 
 function next(){
 	if(searchBar.style.visibility=='hidden'){
 		welcomDiv.remove();
+
 		searchBar.style.visibility="visible";
 		oneiris.style.visibility="visible";
-		oneiris.style.height="100%";
+        oneiris.style.height="100%";
+        searchBarID="#searchRes";
 	}
 }
 
@@ -79,23 +86,25 @@ function setHtml(data){
     $("#deptAccesNum").html(data.ScoreDeptAccesNum);
     $("#deptUsageNum").html(data.ScoreDeptUsageNum);
     $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
-	
-	    
-    /*if(data.comGlobal > 150){
-        $("#cclAvis").html("félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
+
+    
+    $("#textCcl").css("display", "block");
+    var sg = data.ScoreGlobal;
+    if(sg >= 150){
+        $("#cclAvis").html(", cela peut s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
         $("#avisScore").addClass("text-success");
-    }else if(data.comGlobal > 50){
-        $("#cclAvis").html("félicitation votre score est bon cela s'explique par une population variée");
+    }else if(sg < 150 && sg >= 50 ){
+        $("#cclAvis").html(", cela peut s'explique par une population variée");
         $("#avisScore").html("BON");
-        $("#avisScore")..addClass("text-warning");
-    }else if(data.comGlobal > 250){
-        $("#cclAvis").html(" votre score est corect cela s'explique par une population variée");
-        $("#avisScore").html("VARIÉ");
+        $("#avisScore").addClass("text-warning");
+    }else if(sg < 50 && sg >= 25){
+        $("#cclAvis").html(", cela peut s'explique par une population variée");
+        $("#avisScore").html("MOYENS");
         $("#avisScore").addClass("text-danger");
-    }else{
-        $("#cclAvis").html(" votre score est mauvais cela s'explique par une population vieille");
+    }else if (sg < 25 && sg >=0){
+        $("#cclAvis").html(", cela peut s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
         $("#avisScore").addClass("text-dark");
-    }*/
+    }
 }
