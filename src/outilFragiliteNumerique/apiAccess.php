@@ -1,5 +1,5 @@
 <?php
-$irisId = $_GET['cityName'];
+$irisId = $_GET['irisId'];
 
 $con = mysqli_connect('localhost','admin','design4greenPSW','BaseIndicateurs'); //rootAdmin
 if (!$con) {

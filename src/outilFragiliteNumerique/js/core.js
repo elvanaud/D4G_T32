@@ -19,7 +19,7 @@ $(function(){
 			next();
 		}else{
 			// issue an AJAX request
-			$.getJSON("apiAccess.php", { cityName: searchTerm},
+			$.getJSON("apiAccess.php", { irisId: searchTerm},
 				function(data){ // callack function
 									
 					setHtml(data);
@@ -43,7 +43,11 @@ $(function(){
         return false; // to prevent the default action
     });
     
-    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php"});
+    $(".searchTerm").autocomplete({minLength:2, source: "autoComplete.php", 
+        select: function( event, ui ) {
+            $(".searchTerm").val(ui.item.value);
+            $(".searchButton").click();
+        }});
 });
 
 function next(){
