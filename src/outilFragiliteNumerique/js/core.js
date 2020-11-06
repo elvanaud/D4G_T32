@@ -8,20 +8,22 @@ $(function(){
 		
 		oneiris=document.getElementById("OneIris");
 		welcomDiv=document.getElementById("welcomDiv");
-		searchTab=document.getElementById("searchTab");
+		searchBar=document.getElementById("searchBar");
+		
 		
 		if(cache.hasOwnProperty(searchTerm)){
 			data=cache[searchTerm]
 			setHtml(data);
+			welcomDiv.remove();
 			next();
 		}else{
 			// issue an AJAX request
 			$.getJSON("apiAccess.php", { cityName: searchTerm},
 				function(data){ // callack function
-					if(data!=null){					
-						setHtml(data);
-						cache[searchTerm]=data;
-                    }
+									
+					setHtml(data);
+					cache[searchTerm]=data;
+                    
                     
                     if(data === null || data["Type"]==="EMPTY")
                     {
@@ -44,10 +46,11 @@ $(function(){
 });
 
 function next(){
-	if(searchTab.style.visibility=="hidden"){
+	if(searchBar.style.visibility=='hidden'){
 		welcomDiv.remove();
-		searchTab.style.visibility="visible";
+		searchBar.style.visibility="visible";
 		oneiris.style.visibility="visible";
+		oneiris.style.height="100%";
 	}
 }
 
@@ -77,10 +80,10 @@ function setHtml(data){
     $("#deptUsageNum").html(data.ScoreDeptUsageNum);
     $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
     
-    if(data.comGlobal > 150){
+    /*if(data.comGlobal > 150){
         $("#cclAvis").html("félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
-        $("#avisScore")..addClass("text-success");
+        $("#avisScore").addClass("text-success");
     }else if(data.comGlobal > 50){
         $("#cclAvis").html("félicitation votre score est bon cela s'explique par une population variée");
         $("#avisScore").html("BON");
@@ -88,10 +91,10 @@ function setHtml(data){
     }else if(data.comGlobal > 250){
         $("#cclAvis").html(" votre score est corect cela s'explique par une population variée");
         $("#avisScore").html("VARIÉ");
-        $("#avisScore")..addClass("text-danger");
+        $("#avisScore").addClass("text-danger");
     }else{
         $("#cclAvis").html(" votre score est mauvais cela s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
-        $("#avisScore")..addClass("text-dark");
-    }
+        $("#avisScore").addClass("text-dark");
+    }*/
 }

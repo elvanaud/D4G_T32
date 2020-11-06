@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="vue.css">
 		
-        <script src="js/core.js"></script>
+        
     </head>
     <body>
 		<style>
@@ -60,6 +60,8 @@
 						   </div>
 					   </section>
 					</header>
+					
+					<!-- Axes de calcul -->
 					<div id="indiceDiv">
 						<div style="margin-top:5px;">
 							<h5 class="m-0 text-white">Voici les 4 axes de calcul: </h5>
@@ -115,8 +117,12 @@
 						</div>
 					</div>
 				</div>
-                <div class="container" id="OneIris" style="visibility:hidden">
+				
+				<!-- Vue Commune avec un Iris -->
+                <div class="container" id="OneIris" style="visibility:hidden;height:0;">
                    
+				   
+				   <!-- Ligne de la Région -->
                     <div class="row commune" id="ElementRegion" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
@@ -168,6 +174,8 @@
 								</div>
 						</div>
 					</div>
+					
+					<!-- Ligne du Departement -->
                    <div class="row row-cols-2 departement" id="ElementDepartement">
                         <div class="col-xl-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed">
@@ -221,6 +229,8 @@
 								</div>
 						</div>
 					</div>
+					
+				   <!-- Ligne de la commune -->
 				   <div class="row commune" id="ElementCommune" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
@@ -278,12 +288,11 @@
     
            </div> 
            
-           <div class="container">        
+           <!--<div class="container">        
                <div class="row commune" id="ElementPhrase">
-                  <!--<i class="fas fa-info-circle icon"></i>-->
                    <h5 class="m-0 font-weight-bold text-primary text-center" style="padding: 40px 0 0 15px; width: 100%;">La valeur de votre indice est : <span id="avisScore"class="text-danger">MAUVAIS</span>, <span id="cclAvis">la cause peut être du à une population trop jeune !</span></h5>
                </div>
-           </div>
+           </div>-->
            
         </div> 
         
@@ -291,5 +300,6 @@
             <p class="text textColor textSize">Copyright © —— <span class="textColorBlue textSize">Team 32</span> —— Design4Green</p>
         </div>                    
 </body>
+<script src="js/core.js"></script>
 
 </html>
