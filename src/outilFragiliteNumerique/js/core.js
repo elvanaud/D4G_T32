@@ -95,7 +95,7 @@ function setHtml(data){
     }else if(data.comGlobal > 50){
         $("#cclAvis").html(", félicitation votre score est bon cela s'explique par une population variée");
         $("#avisScore").html("BON");
-        $("#avisScore")..addClass("text-warning");
+        $("#avisScore").addClass("text-warning");
     }else if(data.comGlobal > 25){
         $("#cclAvis").html(", votre score est corect cela s'explique par une population variée");
         $("#avisScore").html("MOYENS");
@@ -104,5 +104,5 @@ function setHtml(data){
         $("#cclAvis").html(", votre score est mauvais cela s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
         $("#avisScore").addClass("text-dark");
-
+    }
 }
