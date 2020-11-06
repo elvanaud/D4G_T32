@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="vue.css">
 		
-        <script src="js/core.js"></script>
+        
     </head>
     <body>
 		<style>
@@ -33,7 +33,7 @@
 					   </section>
 					   <section class="col-6">
 						   <div class="search">
-							   <input type="text" class="searchTerm" placeholder="Code postal">
+							   <input type="text" class="searchTerm" id="searchRes" placeholder="Code postal">
 							   <button type="submit" class="searchButton">
 								   <i class="fa fa-search"></i>
 							   </button>
@@ -53,13 +53,15 @@
 						<br>
 						<section class="col-8" style="margin-left:auto;margin-right:auto;">
 						   <div class="search" >
-							   <input type="text" class="searchTerm" placeholder="Entrez le code postal d'une commune ">
+							   <input type="text" class="searchTerm" id="searchAcc" placeholder="Entrez le code postal d'une commune ">
 							   <button type="submit" class="searchButton">
 								   <i class="fa fa-search"></i>
 							   </button>
 						   </div>
 					   </section>
 					</header>
+					
+					<!-- Axes de calcul -->
 					<div id="indiceDiv">
 						<div style="margin-top:5px;">
 							<h5 class="m-0 text-white">Voici les 4 axes de calcul: </h5>
@@ -115,8 +117,12 @@
 						</div>
 					</div>
 				</div>
-                <div class="container" id="OneIris" style="visibility:hidden">
+				
+				<!-- Vue Commune avec un Iris -->
+                <div class="container" id="OneIris" style="visibility:hidden;height:0;">
                    
+				   
+				   <!-- Ligne de la Région -->
                     <div class="row commune" id="ElementRegion" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
@@ -168,6 +174,8 @@
 								</div>
 						</div>
 					</div>
+					
+					<!-- Ligne du Departement -->
                    <div class="row row-cols-2 departement" id="ElementDepartement">
                         <div class="col-xl-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed">
@@ -221,6 +229,8 @@
 								</div>
 						</div>
 					</div>
+					
+				   <!-- Ligne de la commune -->
 				   <div class="row commune" id="ElementCommune" >    
                         <div class="col-lg-10 mb-4">
                             <div class="card shadow mb-4 cardColor borderLeftRed" >
@@ -282,14 +292,15 @@
                <div class="row commune" id="elementPhrase">
                   <!--<i class="fas fa-info-circle icon"></i>-->
                    <h5 class="m-0 font-weight-bold text-primary text-center ccl" id="annonceCcl"><span id="avisScore"class="text-danger"></span><span id="cclAvis"></span></h5>
+
                </div>
            </div>
-           
         </div> 
         
         <div class="footer">
             <p class="text textColor textSize">Copyright © —— <span class="textColorBlue textSize">Team 32</span> —— Design4Green</p>
         </div>                    
 </body>
+<script src="js/core.js"></script>
 
 </html>
