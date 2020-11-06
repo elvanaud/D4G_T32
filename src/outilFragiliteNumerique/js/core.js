@@ -1,9 +1,10 @@
 cache= {};
+searchBarID = "#searchAcc";
 
 $(function(){
     $(".searchButton").click(function(){
-		
-        searchTerm = $(".searchTerm").val();
+        searchTerm = $(searchBarID).val();
+        
 		console.log(cache);
 		
 		oneiris=document.getElementById("OneIris");
@@ -47,7 +48,8 @@ function next(){
 	if(searchTab.style.visibility=="hidden"){
 		welcomDiv.remove();
 		searchTab.style.visibility="visible";
-		oneiris.style.visibility="visible";
+        oneiris.style.visibility="visible";
+        searchBarID="#searchRes";
 	}
 }
 
@@ -80,18 +82,18 @@ function setHtml(data){
     if(data.comGlobal > 150){
         $("#cclAvis").html("félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
-        $("#avisScore")..addClass("text-success");
+        $("#avisScore").addClass("text-success");
     }else if(data.comGlobal > 50){
         $("#cclAvis").html("félicitation votre score est bon cela s'explique par une population variée");
         $("#avisScore").html("BON");
-        $("#avisScore")..addClass("text-warning");
+        $("#avisScore").addClass("text-warning");
     }else if(data.comGlobal > 250){
         $("#cclAvis").html(" votre score est corect cela s'explique par une population variée");
         $("#avisScore").html("VARIÉ");
-        $("#avisScore")..addClass("text-danger");
+        $("#avisScore").addClass("text-danger");
     }else{
         $("#cclAvis").html(" votre score est mauvais cela s'explique par une population vieille");
         $("#avisScore").html("MAUVAIS");
-        $("#avisScore")..addClass("text-dark");
+        $("#avisScore").addClass("text-dark");
     }
 }

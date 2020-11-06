@@ -11,7 +11,7 @@ if (!$con) {
 //com.Nom, dept.NomDept, dept.ScoreDept
 $sql="SELECT *
   FROM Iris, Communes com,Departements dept, Regions reg 
-  WHERE Iris.IdIris ='".$irisId."' AND com.Nom = Iris.IdCommune AND com.IdDept = dept.NumDept AND dept.IdRegion = reg.NumRegion";
+  WHERE Iris.IdIris ='".$irisId."' AND com.Nom = Iris.IdCommune AND Iris.IdCodePostal = com.CodePostal AND com.IdDept = dept.NumDept AND dept.IdRegion = reg.NumRegion";
 
 $result = mysqli_query($con,$sql);
 
