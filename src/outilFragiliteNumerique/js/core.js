@@ -79,7 +79,8 @@ function setHtml(data){
     $("#deptAccesNum").html(data.ScoreDeptAccesNum);
     $("#deptUsageNum").html(data.ScoreDeptUsageNum);
     $("#deptCompAdmin").html(data.ScoreDeptCompAdmin);
-    
+	
+	    
     /*if(data.comGlobal > 150){
         $("#cclAvis").html("félicitation votre score est excelent cela s'explique par une population dynamique et hétérogène");
         $("#avisScore").html("EXCELENT");
